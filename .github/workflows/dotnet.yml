@@ -24,6 +24,9 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Set Environment Variables
+      run: |
+        echo "BUILD_VER=1.0.$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
@@ -34,7 +37,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: false
-        tags: ${{ env.images }}
+        tags: ercanesee/clockdemo:${{ env.BUILD_VER }}
         load: true
     - name: test2
       run: echo ${{ env.resourceGroup1 }}

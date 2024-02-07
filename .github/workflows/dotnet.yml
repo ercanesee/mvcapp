@@ -8,7 +8,9 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
+env:
+ BUILDID: "1.0.$GITHUB_RUN_NUMBER"
+ 
 jobs:
   build:
 
@@ -35,6 +37,6 @@ jobs:
         context: .
         file: ./Dockerfile
         push: false
-        tags: ercanesee/clockdemo:${{ env.BUILD_VER }}
+        tags: ercanesee/clockdemo:${{ env.BUILDID }}
         load: true
 

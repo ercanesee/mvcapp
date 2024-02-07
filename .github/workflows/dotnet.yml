@@ -32,5 +32,5 @@ jobs:
         context: .
         file: ./Dockerfile
         push: false
-        tags: ercanesee/clockbox:latest
+        tags: ercanesee/clockbox:$GITHUB_RUN_ID
         load: true

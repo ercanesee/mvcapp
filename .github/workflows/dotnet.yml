@@ -35,6 +35,6 @@ jobs:
         context: .
         file: ./Dockerfile
         push: false
-        tags: ercanesee/clockdemo:${{ env.BUILD_VER }}
+        tags: ercanesee/clockdemo:${{ env.GITHUB_RUN_NUMBER }}
         load: true
 

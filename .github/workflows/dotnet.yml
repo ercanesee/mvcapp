@@ -8,8 +8,6 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-env:
-  images: "ercanese/clockdemo:${{ env.resourceGroup1 }}"
 
 jobs:
   build:
@@ -39,5 +37,4 @@ jobs:
         push: false
         tags: ercanesee/clockdemo:${{ env.BUILD_VER }}
         load: true
-    - name: test2
-      run: echo ${{ env.resourceGroup1 }}
+

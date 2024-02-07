@@ -34,7 +34,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: false
-        tags: ercanesee/clockbox:1
+        tags: ercanesee/clockbox:"${{ env.resourceGroup1 }}"
         load: true
     - name: test2
       run: echo ${{ env.resourceGroup1 }}

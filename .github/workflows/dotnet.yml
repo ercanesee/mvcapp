@@ -9,7 +9,7 @@ on:
   pull_request:
     branches: [ "master" ]
 env:
-  resourceGroup1: ${GITHUB_RUN_ID}-${GITHUB_RUN_NUMBER}
+  images: "ercanese/clockdemo:${{ env.resourceGroup1 }}"
 
 jobs:
   build:
@@ -34,7 +34,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: false
-        tags: ercanesee/clockbox:$env.resourceGroup1
+        tags: ${{ env.images }}
         load: true
     - name: test2
       run: echo ${{ env.resourceGroup1 }}

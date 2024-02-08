@@ -47,12 +47,14 @@ jobs:
     runs-on: self-hosted 
     needs: build
     steps:
-    - name: Approve Production Deployment
-      uses: trstringer/manual-approval@v1.7.0
+    
+    - name: Manual Workflow Approval
+      uses: trstringer/manual-approval@v1.9.0
       with:
-         approvers: deployers
-         secret: ${{ steps.generate_token.outputs.token }}
-         issue-title: Approve Production Deployment
+       secret: ${{ github.TOKEN }}
+       approvers: ercanesee
+       minimum-approvals: 1
+               
     - name: Delete Old Docker Image
       run: |
         docker rm mvcapp --force

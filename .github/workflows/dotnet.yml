@@ -39,7 +39,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: false
-        tags: ercanesee/mvcpapp:${{ env.BUILD_VER }}
+        tags: ercanesee/mvcpapp:${{ github.run_number }}
         load: true
         
   deploy:

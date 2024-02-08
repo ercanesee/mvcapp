@@ -47,6 +47,9 @@ jobs:
     runs-on: self-hosted 
     needs: build
     steps:
+    - name: Delete Old Docker Image
+      run: |
+        docker rm --name mvcapp --force
     - name: Run Docker Image
       run: |
         docker run -d -p 8080:80 --name mvcapp ercanesee/mvcpapp:${{ github.run_number }}

@@ -43,7 +43,9 @@ jobs:
         load: true
         
   deploy:
+    name: Deploy
     runs-on: self-hosted 
+    needs: build
     steps:
     - name: Run Docker Image
       run: |

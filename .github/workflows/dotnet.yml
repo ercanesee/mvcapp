@@ -46,11 +46,8 @@ jobs:
     name: Deploy
     runs-on: self-hosted 
     needs: build
+    environment: Prod
     steps:
-    - uses: trstringer/manual-approval@v1
-      with:
-        secret: ${{ github.TOKEN }}
-        approvers: ercanesee
     - name: Delete Old Docker Image
       run: |
         docker rm mvcapp --force
